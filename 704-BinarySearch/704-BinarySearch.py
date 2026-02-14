@@ -1,14 +1,12 @@
-# Last updated: 2/13/2026, 6:15:47 PM
+# Last updated: 2/14/2026, 12:13:04 PM
 1class Solution:
-2    def search(self, nums: List[int], target: int) -> int:
-3        low = 0
-4        high = len(nums)-1
-5        while low <= high:
-6            mid = int(low + (high - low) / 2)
-7            if nums[mid] == target:
-8                return mid
-9            elif nums[mid] > target:
-10                high = mid -1
-11            else:
-12                low = mid +1
-13        return -1
+2    def uniqueOccurrences(self, arr: List[int]) -> bool:
+3        nums = set()
+4        occurances = set()
+5        for num in arr:
+6            if num not in nums:
+7                occurances.add(arr.count(num))
+8                nums.add(num)
+9        if len(nums) == len(occurances):
+10            return True
+11        return False
