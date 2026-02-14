@@ -1,24 +1,19 @@
-# Last updated: 2/14/2026, 2:02:43 PM
+# Last updated: 2/14/2026, 2:20:26 PM
 1class Solution:
-2    def canBeIncreasing(self, nums: List[int]) -> bool:
-3        if len(nums) == 2:
-4            return True
-5        for i in range(0, len(nums)):
-6            if i == 0:
-7                if self.isSorted(nums[1:len(nums)]):
-8                    return True
-9            elif i == len(nums):
-10                if self.isSorted(nums[0:len(nums)]):
-11                    return True
-12            else:
-13                if self.isSorted(nums[0:i] + nums[i+1:len(nums)]):
-14                    return True    
-15        return False
-16        
-17    def isSorted(self, nums: List[int]) -> bool:
-18        sorted_nums = sorted(nums)
-19        set_nums = set(nums)
-20        if nums == sorted_nums and (nums.count(nums[0]) != len(nums)) and len(set_nums) == len(nums):
-21            return True
-22        return False
-23
+2    def diagonalSum(self, mat: List[List[int]]) -> int:
+3        seen = []
+4        lsum = 0
+5        i = 0
+6        while i != len(mat):
+7            lsum += mat[i][i]
+8            seen.append([i,i])
+9            i += 1
+10
+11        rsum = 0
+12        j = 0
+13        while j != len(mat):
+14            if [j, len(mat[j]) - 1 - j] not in seen:
+15                rsum += mat[j][len(mat[j]) - 1 - j]
+16                seen.append([j, len(mat[j]) - 1 - j])
+17            j += 1
+18        return lsum + rsum
