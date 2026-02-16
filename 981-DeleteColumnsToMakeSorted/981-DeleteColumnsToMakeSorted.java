@@ -1,0 +1,15 @@
+// Last updated: 2/15/2026, 8:54:15 PM
+class Solution {
+    public int minDeletionSize(String[] strs) {
+        int count = 0;
+        for (int i = 0; i<strs[0].length(); i++){
+            for (int j = 1; j<strs.length; j++){
+                if (strs[j-1].charAt(i) > strs[j].charAt(i)){
+                    count++;
+                    break;
+                }
+            }
+        }
+        return count;
+    }
+}
