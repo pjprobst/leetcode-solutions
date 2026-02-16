@@ -1,12 +1,13 @@
-# Last updated: 2/16/2026, 12:20:45 PM
+# Last updated: 2/16/2026, 12:23:33 PM
 1class Solution:
-2    def shuffle(self, nums: List[int], n: int) -> List[int]:
-3        pointer_one = 0
-4        pointer_two = n
-5        res = []
-6        while len(res) < len(nums):
-7            res.append(nums[pointer_one])
-8            res.append(nums[pointer_two])
-9            pointer_one += 1
-10            pointer_two += 1
-11        return res
+2    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+3        count = 0
+4        max_count = 0
+5        for num in nums:
+6            if num:
+7                count += 1
+8            else:
+9                max_count = max(max_count, count)
+10                count = 0
+11        max_count = max(max_count, count)
+12        return max_count
