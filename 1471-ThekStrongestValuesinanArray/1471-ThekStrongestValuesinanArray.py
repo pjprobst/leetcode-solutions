@@ -1,7 +1,14 @@
-# Last updated: 2/18/2026, 7:50:49 PM
+# Last updated: 2/18/2026, 10:02:54 PM
 1class Solution:
-2    def buildArray(self, nums: List[int]) -> List[int]:
-3        ans = [0] * len(nums)
-4        for i in range(len(nums)):
-5            ans[i] = nums[nums[i]]
-6        return ans
+2    def addDigits(self, num: int) -> int:
+3        num = str(num)
+4        total = 0
+5        for l in num:
+6            total += int(l)
+7        
+8        if total < 10:
+9            return total
+10        res = None
+11        while res is None:
+12            res = self.addDigits(total)
+13        return res
