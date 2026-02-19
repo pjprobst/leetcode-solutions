@@ -1,14 +1,14 @@
-# Last updated: 2/18/2026, 10:02:54 PM
+# Last updated: 2/19/2026, 12:34:23 AM
 1class Solution:
-2    def addDigits(self, num: int) -> int:
-3        num = str(num)
-4        total = 0
-5        for l in num:
-6            total += int(l)
-7        
-8        if total < 10:
-9            return total
-10        res = None
-11        while res is None:
-12            res = self.addDigits(total)
+2    def sortByReflection(self, nums: List[int]) -> List[int]:
+3        binnums = []
+4        for i in range(len(nums)):
+5            binnum = bin(nums[i])[::-1]
+6            binnums.append([int(binnum[:len(binnum)-2], 2), nums[i]])
+7        binnums = sorted(binnums)
+8        print(binnums)
+9
+10        res = []
+11        for i in range(len(binnums)):
+12            res.append(binnums[i][1])
 13        return res
