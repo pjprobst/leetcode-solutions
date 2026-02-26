@@ -1,4 +1,4 @@
-# Last updated: 2/25/2026, 7:14:23 PM
+# Last updated: 2/25/2026, 7:14:34 PM
 1class Solution:
 2    def numSteps(self, s: str) -> int:
 3        count = 0
@@ -16,5 +16,5 @@
 15        for l in s:
 16            if l == "1":
 17                total += add
-18            add = int(add // 2)
+18            add = add // 2
 19        return total
