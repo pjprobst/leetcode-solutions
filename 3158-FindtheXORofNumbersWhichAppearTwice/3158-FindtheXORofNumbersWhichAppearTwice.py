@@ -1,19 +1,15 @@
-# Last updated: 3/5/2026, 12:03:37 PM
+# Last updated: 3/5/2026, 12:11:57 PM
 1class Solution:
-2    def duplicateNumbersXOR(self, nums: List[int]) -> int:
-3        seen = set()
-4        pairs = []
-5        for num in nums:
-6            if num in seen:
-7                pairs.append(num)
-8            else:
-9                seen.add(num)
-10        if not pairs:
-11            return 0
-12        total = pairs[0]
-13        print(pairs)
-14        for i in range(1, len(pairs)):
-15            print(total)
-16            total = total ^ pairs[i]
-17        return total
-18
+2    def occurrencesOfElement(self, nums: List[int], queries: List[int], x: int) -> List[int]:
+3        occ = []
+4        for i in range(len(nums)):
+5            if nums[i] == x:
+6                occ.append(i)
+7        print(occ)
+8        ans = []
+9        for query in queries:
+10            if query not in range(len(occ)+1):
+11                ans.append(-1)
+12            else:
+13                ans.append(occ[query-1])
+14        return ans
